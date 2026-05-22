@@ -3,40 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Lista de Tarefas</title>
+    <title>Minha Lista de Tarefas </title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <h1>Gerenciador de Tarefas</h1>
-        <p>Organize o seu dia de forma simples</p>
+        <p>Organize o seu dia de forma simples </p>
     </header>
 
     <main>
         <div class="todo-container">
+            
+            <form action="/adicionar-tarefa" method="POST" id="todo-form">
+                <input type="text" name="nova_tarefa" id="task-input" placeholder="Digite uma nova tarefa..." required>
+                <button type="submit" id="add-btn">Adicionar</button>
+            </form>
+
             <ul class="todo-list">
+               
                 <li class="todo-item">
                     <label class="task-content">
-                        <input type="checkbox">
+                        
+                        <input type="checkbox" id="task-1">
                         <span>Estudar estrutura de tags HTML5</span>
                     </label>
-                    <button class="delete-btn" title="Excluir tarefa">&times;</button>
                 </li>
 
-                <li class="todo-item completed">
+                
+                <li class="todo-item">
                     <label class="task-content">
-                        <input type="checkbox" checked>
+                        <input type="checkbox" id="task-2" checked>
                         <span>Criar o design da lista no CSS</span>
                     </label>
-                    <button class="delete-btn" title="Excluir tarefa">&times;</button>
                 </li>
             </ul>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 - Desenvolvido com HTML e CSS</p>
+        <p>&copy; 2026 - Enviando dados </p>
     </footer>
 
 </body>
