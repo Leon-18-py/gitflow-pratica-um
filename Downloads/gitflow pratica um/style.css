@@ -41,6 +41,11 @@ main {
     align-items: flex-start;
 }
 
+
+#filter-all, #filter-pending, #filter-completed {
+    display: none;
+}
+
 .todo-container {
     background-color: #fff;
     width: 100%;
@@ -86,6 +91,67 @@ main {
 }
 
 
+#todo-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#task-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#task-input:focus {
+    border-color: #1abc9c;
+}
+
+#add-btn {
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.2rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#add-btn:hover {
+    background-color: #16a085;
+}
+
+.filter-tabs {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f4f7f6;
+    padding-bottom: 0.75rem;
+}
+
+.tab-btn {
+    flex: 1;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #7f8c8d;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.tab-btn:hover {
+    background-color: #f4f7f6;
+    color: #34495e;
+}
+
 .todo-list {
     list-style: none;
 }
@@ -117,10 +183,15 @@ main {
 }
 
 
+
+
+
 .task-content input[type="checkbox"]:checked + span {
     text-decoration: line-through;
     color: #95a5a6;
 }
+
+
 
 
 footer {
@@ -133,4 +204,21 @@ footer {
 
 footer p {
     color: #95a5a6;
+}
+
+
+#filter-all:checked ~ .todo-container .btn-all,
+#filter-pending:checked ~ .todo-container .btn-pending,
+#filter-completed:checked ~ .todo-container .btn-completed {
+    background-color: #34495e;
+    color: white;
+}
+
+
+#filter-pending:checked ~ .todo-container .task-completed {
+    display: none;
+}
+
+#filter-completed:checked ~ .todo-container .task-pending {
+    display: none;
 }
