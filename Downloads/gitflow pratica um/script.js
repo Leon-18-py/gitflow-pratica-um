@@ -11,6 +11,7 @@ function saveTasks(tasks) {
 }
 let tasks = loadTasks();
 let currentFilter = "all";
+
 function showSpinner() {
   document.getElementById("spinner").style.display = "flex";
 }
