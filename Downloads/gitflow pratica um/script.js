@@ -97,6 +97,7 @@ function addTask() {
     hideSpinner();
   }, 500);
 }
+
 function toggleTask(id) {
   tasks = tasks.map((t) => (t.id === id ? { ...t, done: !t.done } : t));
   saveTasks(tasks);
@@ -133,5 +134,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".filter-btn").forEach((btn) => {
     btn.addEventListener("click", () => setFilter(btn.dataset.filter));
+  });
+
+  const themeToggleBtn = document.getElementById("theme-toggle");
+
+  function applyTheme(theme) {
+    if (theme === "dark") {
+      document.body.classList.add("dark-mode");
+      themeToggleBtn.textContent = "☀️ Light";
+    } else {
+      document.body.classList.remove("dark-mode");
+      themeToggleBtn.textContent = "🌙 Dark";
+    }
+  }
+
+  const savedTheme = localStorage.getItem("theme") || "light";
+  applyTheme(savedTheme);
+
+  themeToggleBtn.addEventListener("click", () => {
+    const isDark = document.body.classList.contains("dark-mode");
+    const newTheme = isDark ? "light" : "dark";
+    
+    localStorage.setItem("theme", newTheme);
+    applyTheme(newTheme);
   });
 });
