@@ -1,19 +1,3 @@
-function loadTasks() {
-  try {
-    const data = localStorage.getItem("tasks");
-    return data ? JSON.parse(data) : [];
-  } catch (e) {
-    return [];
-  }
-}
-
-function saveTasks(tasks) {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-
-let tasks = loadTasks();
-let currentFilter = "all";
-
 function showSpinner() {
   document.getElementById("spinner").style.display = "flex";
 }
