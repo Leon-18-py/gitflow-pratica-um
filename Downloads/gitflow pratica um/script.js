@@ -6,26 +6,21 @@ function loadTasks() {
     return [];
   }
 }
-
 function saveTasks(tasks) {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
-
 let tasks = loadTasks();
 let currentFilter = "all";
-
 function showSpinner() {
   document.getElementById("spinner").style.display = "flex";
 }
-
 function hideSpinner() {
   document.getElementById("spinner").style.display = "none";
 }
-
 function renderTasks() {
   const todoList = document.querySelector(".todo-list");
   todoList.innerHTML = "";
-
+  
   const filtered = tasks.filter((t) => {
     if (currentFilter === "pending") return !t.done;
     if (currentFilter === "done")    return t.done;
